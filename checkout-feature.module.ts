@@ -98,12 +98,6 @@ export const translationOverwrites = {
             routeName: 'checkoutAdyenPaymentDetails',
             type: [CheckoutStepType.PAYMENT_DETAILS],
           },
-          {
-            id: 'reviewOrder',
-            name: 'checkoutProgress.reviewOrder',
-            routeName: 'checkoutReviewOrder',
-            type: [CheckoutStepType.REVIEW_ORDER],
-          },
         ],
       },
     })
