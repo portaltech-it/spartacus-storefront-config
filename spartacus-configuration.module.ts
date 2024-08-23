@@ -18,7 +18,7 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
      	urlParameters: ['baseSite', 'language', 'currency'],
   	  baseSite: ['electronics-spa'],
       currency: [ 'PLN',
-                  'USD'
+                  'USD',
                   'EUR',
                   'JPY',
                   'GBP',
