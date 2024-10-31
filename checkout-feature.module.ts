@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {checkoutTranslationChunksConfig, checkoutTranslations} from "@spartacus/checkout/base/assets";
 import {CHECKOUT_FEATURE, CheckoutRootModule, CheckoutStepType} from "@spartacus/checkout/base/root";
 import {CmsConfig, I18nConfig, provideConfig} from "@spartacus/core";
-import {AdyenPaymentsModule} from "adyen-payments";
+import {AdyenPaymentsModule} from "@adyen/adyen-spartacus";
 
 export const translationOverwrites = {
   en: { // lang
