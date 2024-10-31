@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CmsConfig, I18nConfig, provideConfig} from "@spartacus/core";
 import {orderTranslationChunksConfig, orderTranslations} from "@spartacus/order/assets";
 import {ORDER_FEATURE, OrderFacade, OrderRootModule} from "@spartacus/order/root";
-import {AdyenOrderService, OrderConfirmationPaymentStatusModule} from "adyen-payments";
+import {AdyenExpressOrderService, OrderConfirmationPaymentStatusModule} from "@adyen/adyen-spartacus";
 
 @NgModule({
   declarations: [],
@@ -26,7 +26,7 @@ import {AdyenOrderService, OrderConfirmationPaymentStatusModule} from "adyen-pay
   }),
     {
       provide: OrderFacade,
-      useExisting: AdyenOrderService,
+      useExisting: AdyenExpressOrderService,
     }
   ]
 })
