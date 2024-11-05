@@ -10,7 +10,7 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
   providers: [provideConfig(layoutConfig), provideConfig(mediaConfig), ...defaultCmsContentProviders, provideConfig(<OccConfig>{
     backend: {
       occ: {
-        baseUrl: 'https://alphacentauri.pt-reply.com/',
+        baseUrl: 'https://dev-alphacentauri.pt-reply.com/',
       }
     },
   }), provideConfig(<SiteContextConfig>{
