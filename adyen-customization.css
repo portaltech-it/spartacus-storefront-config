@@ -4,7 +4,7 @@
   -webkit-appearance: -apple-pay-button;
 }
 
-.adyen-checkout__applepay__button {
+cx-apple-express-payment .adyen-checkout__applepay__button {
   width: 100%;
   -webkit-appearance: -apple-pay-button;
 }
