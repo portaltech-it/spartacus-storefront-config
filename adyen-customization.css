@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'styles-config';
+$styleVersion: 2211.42;
 
 // ORDER IMPORTANT: Spartacus core first
 @import '@spartacus/styles/scss/core';
