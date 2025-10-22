@@ -4,30 +4,31 @@ import {orderTranslationChunksConfig, orderTranslations} from "@spartacus/order/
 import {ORDER_FEATURE, OrderFacade, OrderRootModule} from "@spartacus/order/root";
 import {AdyenExpressOrderService, OrderConfirmationPaymentStatusModule} from "@adyen/adyen-spartacus";
 
+
 @NgModule({
-  declarations: [],
-  imports: [
-    OrderRootModule,
-    OrderConfirmationPaymentStatusModule
-  ],
-  providers: [provideConfig(<CmsConfig>{
-    featureModules: {
-      [ORDER_FEATURE]: {
-        module: () =>
-          import('@spartacus/order').then((m) => m.OrderModule),
-      },
-    }
-  }),
-  provideConfig(<I18nConfig>{
-    i18n: {
-      resources: orderTranslations,
-      chunks: orderTranslationChunksConfig,
-    },
-  }),
-    {
-      provide: OrderFacade,
-      useExisting: AdyenExpressOrderService,
-    }
-  ]
+    declarations: [],
+    imports: [
+        OrderRootModule,
+        OrderConfirmationPaymentStatusModule
+    ],
+    providers: [provideConfig(<CmsConfig>{
+        featureModules: {
+            [ORDER_FEATURE]: {
+                module: () =>
+                    import('./order-wrapper.module').then((m) => m.OrderWrapperModule),
+            },
+        }
+    }),
+        provideConfig(<I18nConfig>{
+            i18n: {
+                resources: orderTranslations,
+                chunks: orderTranslationChunksConfig,
+            },
+        }),
+        {
+            provide: OrderFacade,
+            useExisting: AdyenExpressOrderService,
+        }
+    ]
 })
 export class OrderFeatureModule { }
