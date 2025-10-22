@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { translationChunksConfig, translationsEn } from "@spartacus/assets";
+import { translationChunksConfig, translations } from "@spartacus/assets";
 import { FeaturesConfig, I18nConfig, OccConfig, provideConfig, SiteContextConfig } from "@spartacus/core";
 import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacus/storefront";
 
@@ -40,7 +40,7 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
                   'ZAR']},
   }), provideConfig(<I18nConfig>{
     i18n: {
-      resources: translationsEn,
+      resources: translations,
       chunks: translationChunksConfig,
       fallbackLang: 'en'
     },
