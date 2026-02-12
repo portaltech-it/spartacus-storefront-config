@@ -53,7 +53,32 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
 
     // 3. Context Configuration
     provideConfig(<SiteContextConfig>{
-      context: {},
+
+      context: {
+       	urlParameters: ['baseSite', 'language', 'currency'],
+    	  baseSite: ['electronics-spa'],
+        currency: [ 'PLN',
+                    'USD',
+                    'EUR',
+                    'JPY',
+                    'GBP',
+                    'AUD',
+                    'CAD',
+                    'CHF',
+                    'CNY',
+                    'SEK',
+                    'NZD',
+                    'MXN',
+                    'SGD',
+                    'HKD',
+                    'NOK',
+                    'KRW',
+                    'TRY',
+                    'RUB',
+                    'INR',
+                    'BRL',
+                    'ZAR']},
+      },
     }), 
     
     // 4. I18n Configuration
