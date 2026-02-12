@@ -78,7 +78,6 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
                     'INR',
                     'BRL',
                     'ZAR']},
-      },
     }), 
     
     // 4. I18n Configuration
