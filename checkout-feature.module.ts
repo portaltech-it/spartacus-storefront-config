@@ -1,8 +1,41 @@
 import {NgModule} from '@angular/core';
-import {checkoutTranslationChunksConfig, checkoutTranslations} from "@spartacus/checkout/base/assets";
-import {CHECKOUT_FEATURE, CheckoutRootModule, CheckoutStepType} from "@spartacus/checkout/base/root";
-import {CmsConfig, I18nConfig, provideConfig} from "@spartacus/core";
+import {checkoutTranslationChunksConfig, checkoutTranslationsEn} from "@spartacus/checkout/base/assets";
+import {CHECKOUT_CORE_FEATURE, CHECKOUT_FEATURE, CheckoutStepType} from "@spartacus/checkout/base/root";
+import {CmsConfig, I18nConfig, provideConfig,provideDefaultConfigFactory} from "@spartacus/core";
 import {AdyenPaymentsModule} from "@adyen/adyen-spartacus";
+import {CART_BASE_FEATURE} from '@spartacus/cart/base/root';
+
+
+export const CHECKOUT_BASE_CMS_COMPONENTS: string[] = [
+  'CheckoutOrchestrator',
+  'CheckoutOrderSummary',
+  'CheckoutProgress',
+  'CheckoutProgressMobileBottom',
+  'CheckoutProgressMobileTop',
+  'CheckoutDeliveryMode',
+  'CheckoutAdyenPaymentDetails',
+  'CheckoutPlaceOrder',
+  'CheckoutReviewOrder',
+  'CheckoutReviewPayment',
+  'CheckoutReviewShipping',
+  'CheckoutReviewOverview',
+  'CheckoutDeliveryAddress',
+  'GuestCheckoutLoginComponent',
+];
+
+export function adyenCheckoutComponentsConfig() {
+  const config: CmsConfig = {
+    featureModules: {
+      [CHECKOUT_FEATURE]: {
+        cmsComponents: CHECKOUT_BASE_CMS_COMPONENTS,
+        dependencies: [CART_BASE_FEATURE],
+      },
+      // by default core is bundled together with components
+      [CHECKOUT_CORE_FEATURE]: CHECKOUT_FEATURE,
+    },
+  };
+  return config;
+}
 
 export const translationOverwrites = {
   en: { // lang
@@ -17,10 +50,10 @@ export const translationOverwrites = {
 @NgModule({
   declarations: [],
   imports: [
-    AdyenPaymentsModule,
-    CheckoutRootModule
+    AdyenPaymentsModule
   ],
   providers: [
+    provideDefaultConfigFactory(adyenCheckoutComponentsConfig),
     provideConfig(<CmsConfig>{
       featureModules: {
         [CHECKOUT_FEATURE]: {
@@ -34,7 +67,7 @@ export const translationOverwrites = {
     }),
     provideConfig(<I18nConfig>{
       i18n: {
-        resources: checkoutTranslations,
+        resources: {en: checkoutTranslationsEn},
         chunks: checkoutTranslationChunksConfig,
       },
       routing: {
