@@ -37,6 +37,7 @@ import { defaultCmsContentProviders, layoutConfig, mediaConfig } from "@spartacu
         tokenEndpoint: '/authorizationserver/oauth/token',
         loginUrl: '/authorizationserver/oauth/authorize',
         revokeEndpoint: '/authorizationserver/oauth/revoke',
+        redirectUri: 'https://nextgen-proximacentauri.pt-reply.com/spartacus/electronics-spa/',
         
         OAuthLibConfig: {
           responseType: 'code', 
