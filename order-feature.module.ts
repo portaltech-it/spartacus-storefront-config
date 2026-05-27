@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {CmsConfig, I18nConfig, provideConfig} from "@spartacus/core";
-import {orderTranslationChunksConfig, orderTranslations} from "@spartacus/order/assets";
+import {orderTranslationChunksConfig, orderTranslationsEn} from "@spartacus/order/assets";
 import {ORDER_FEATURE, OrderFacade, OrderRootModule} from "@spartacus/order/root";
-import {AdyenExpressOrderService, OrderConfirmationPaymentStatusModule} from "@adyen/adyen-spartacus";
+import {AdyenOrderService, OrderConfirmationPaymentStatusModule} from "@adyen/adyen-spartacus";
 
 @NgModule({
   declarations: [],
@@ -18,15 +18,15 @@ import {AdyenExpressOrderService, OrderConfirmationPaymentStatusModule} from "@a
       },
     }
   }),
-  provideConfig(<I18nConfig>{
-    i18n: {
-      resources: orderTranslations,
-      chunks: orderTranslationChunksConfig,
-    },
-  }),
+    provideConfig(<I18nConfig>{
+      i18n: {
+        resources: {en: orderTranslationsEn},
+        chunks: orderTranslationChunksConfig,
+      },
+    }),
     {
       provide: OrderFacade,
-      useExisting: AdyenExpressOrderService,
+      useExisting: AdyenOrderService,
     }
   ]
 })
