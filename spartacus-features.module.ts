@@ -16,6 +16,7 @@ import { AsmCustomer360FeatureModule } from './features/asm/asm-customer360-feat
 import { SmartEditFeatureModule } from './features/smartedit/smart-edit-feature.module';
 import { ProductVariantsFeatureModule } from './features/product/product-variants-feature.module';
 import { ProductImageZoomFeatureModule } from './features/product/product-image-zoom-feature.module';
+import { AdyenMySubscriptionsModule } from '@adyen/adyen-spartacus';
 
 @NgModule({
   declarations: [],
@@ -84,6 +85,7 @@ import { ProductImageZoomFeatureModule } from './features/product/product-image-
     SmartEditFeatureModule,
     ProductVariantsFeatureModule,
     ProductImageZoomFeatureModule,
+    AdyenMySubscriptionsModule,
   ],
   providers: [provideFeatureToggles({
     "a11yKeyboardAccessibleZoom": true,
